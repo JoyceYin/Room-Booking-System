@@ -1,0 +1,381 @@
+{% extends "based.html" %}
+{% load staticfiles %}
+
+
+{% block style %}
+<style type="text/css">
+
+.listingbox{
+	position: relative;
+	color: rgb(72, 72, 72);
+	height: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	border-image: initial;
+	border-radius: 3px;
+}
+
+.eachbox{
+	display: table;
+	width: 100%;
+	border-spacing: 0px;
+}
+
+.imagebox{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.imageinside{
+	position: relative;
+	z-index: 0;
+	width: 300px;
+	height: 200px;
+}
+
+.realimageroom{
+	position: relative;
+}
+
+.realimageroom1{
+	contain: strict;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	overflow: hidden;
+}
+
+.realimageroom2{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.realimageroom3{
+	background-color: rgb(216, 216, 216);
+	vertical-align: middle;
+	display: block;
+	height: 200px;
+	width: 300px;
+}
+
+.textbigbox{
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.textmiddlebox{
+	height: 200px;
+	padding: 20px 20px 16px;
+}
+
+.realtext{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+}
+
+.textright1{
+	position: absolute;
+	left: 0px;
+	right: 164px;
+}
+
+.textright2{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 164px;
+}
+
+.textright2real{
+	-webkit-box-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.listinghostpic{
+	position: relative;
+}
+
+.realimage{
+	background-color: rgb(216, 216, 216);
+	vertical-align: middle;
+	display: block;
+	border-radius: 50%;
+	border-width: 2px;
+	border-style: solid;
+	border-color: rgb(255, 255, 255);
+	overflow: hidden;
+}
+
+.descriptiontext{
+	-webkit-box-align: center;
+	margin-left: 4px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.descriptioninside{
+	text-overflow: ellipsis;
+	line-height: 16px;
+	white-space: nowrap;
+	flex: 1 1 0%;
+	overflow: hidden;
+}
+
+.realdescription{
+	overflow-wrap: break-word;
+	font-family: Lato;
+	vertical-align: middle;
+	font-size: 12px;
+	line-height: 1.33333em;
+	font-weight: 400;
+	margin: 0px;
+}
+
+.textleftbox{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding-left: 16px;
+	width: 148px;
+	height: 100%;
+	border-left: 1px solid rgb(235, 235, 235);
+}
+
+.RatingBox{
+	text-align: right;
+	white-space: nowrap;
+	line-height: 1;
+}
+
+.PriceBox{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.PriceDetail{
+	overflow-wrap: break-word;
+	font-family: Lato;
+	vertical-align: middle;
+	font-size: 18px;
+	line-height: 1.44444em;
+	font-weight: 900;
+	margin: 0px;
+}
+
+.PriceInside{
+	direction: rtl;
+	height: 26px;
+	line-height: 26px;
+}
+
+.RealPrice{
+	color: rgb(0, 132, 137);
+}
+
+.pagination{
+	text-align: center;
+	margin-top: 1em;
+}
+
+.pagination-action{
+	margin: 0 0.1em;
+	display: inline-block;
+	padding: 0.5em;
+	color: #B9B9B9;
+	font-size: 1.3em;
+}
+
+.pagination-action:hover{
+	color: #4A4A3F;
+}
+
+.pagination-number{
+	background:opacity;
+	padding: 0.6em 1em;
+	color: #4A4A3F;
+	border-radius: 3px;
+	border-color: #4A4A3F;
+}
+
+.pagination-number:hover, .pagination-current{
+	background-color: #4A4A3F;
+	background: opacity 0.6;
+}
+
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<br>
+	<div class="container">
+		<h2 style="font:Lato;font-size: 40px;text-align: center;padding-top: 20px;">
+		 - {{country}} -
+		 </h2>
+		 <div>
+		 	<div style="box-sizing: border-box; border: 0 solid #E2E7EA">
+		 	</div>
+		 </div>
+		 <hr style="color: #4E0104;">
+		</h2>
+	</div>
+
+
+	<br>
+
+
+	<div class="container">
+		<ul class="nav nav-pills nav-fill">
+			<li class="nav-item">
+				<a class="nav-link btn-outline-dark" href="/search/{{country}}/popular">Popular</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link btn-outline-dark" href="/search/{{country}}/cheap">Cheapest Price</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link btn-outline-dark" href="/search/{{country}}/Review">Best Review</a>
+			</li>
+		</ul>
+	</div>
+	<br>
+
+	{% for list in listings %}
+	<div class="container">
+		<div class="listingbox">
+			<div class="eachbox">
+				<!--image part-->
+				<div class="imagebox">
+					<div class="imageinside">
+						<div class="realimageroom">
+							<div>
+								<div class="realimageroom1" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
+									<div class="realimageroom2">
+										<img class="realimageroom3" src="{{ list.pic }}">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--Big text part-->
+				
+				<div class="textbigbox">
+
+					<a href="/detail/{{list.RID}}">
+					<div class="textmiddlebox">
+						<div class="realtext">
+
+							<!--Right Top Text-->
+							<div class="textright1">
+								
+								<div style="margin-bottom: 4px;">
+									{{ list.name }}
+								</div>
+
+								<br>
+								<div style="margin-bottom: 2px;">
+									{{ list.street }}
+								</div>
+							</div>
+
+							<!--Right Buttom Text-->
+							<div class="textright2">
+								<div class="textright2real">
+									<div class="listinghostpic" style="height: 24px; width: 24px; display: block;">
+										<img class="realimage" src="{% static 'host.jpg' %}" height="24" width="24" alt title>
+									</div>
+									<div class="descriptiontext">
+										<span class="descriptioninside">
+											<span class="realdescription" style="color: rgb(72, 72, 72 );">
+												{{ list.description }}
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<!--Left Text-->
+							<div class="textleftbox">
+
+								<!--Left Top Text-->
+								<div class="RatingBox">
+									<strong style="font-size: 20px;">{{ list.rating }}</strong>
+								</div>
+
+								<!--Left Buttom Text-->
+								<div class="PriceBox">
+									<div class="PriceDetail" style="color: rgb(72, 72, 72);">
+										<div class="PriceInside">
+											<span class="RealPrice">
+												${{ list.price }}
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div> 
+					</a>
+				</div>
+			
+			</div>
+	
+		</div>
+		
+		<br>
+		</div>
+	</div>
+	{% endfor %}
+
+
+	<br>
+</div>
+<br>
+
+<div class="pagination" style="padding-left: 550px;">
+
+	{% if listings.has_previous %}
+		<a class="pagination-action" href="?page=1"> <i class="fas fa-angle-double-left"></i> </a>
+		<a class="pagination-action" href="?page={{listings.has_previous}}"> <i class="fas fa-angle-left"></i></a>
+	{% endif %}
+
+	{% for num in listings.paginator.page_range %}
+		{% if listings.number == num %}
+		<span class="pagination-number pagination-current" style="color: #FFFFFF;">
+			{{ num }}
+		</span>
+
+	{% elif num > listings.number|add:'-3' and num < listings.number|add:'3' %}
+		<a class="pagination-number " href="?page={{num}}">{{ num }}</a>
+	{% endif %}
+
+	{% endfor %}
+
+	{% if listings.has_next %}
+		<a class="pagination-action" href="?page={{listings.next_page_number}}"> <i class="fas fa-angle-right"></i> </a>
+		<a class="pagination-action" href="?page={{listings.paginator.num_pages}}"> <i class="fas fa-angle-double-right"></i> </a>
+	{% endif %}
+</div>
+
+<br>
+
+{% endblock %}

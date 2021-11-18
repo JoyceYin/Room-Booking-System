@@ -1,0 +1,103 @@
+{% extends "based.html" %}
+{% load staticfiles %}
+
+
+{% block style %}
+<style type="text/css">
+
+.container1{
+    max-width: 1000px;
+    justify-content: flex-end;
+    margin-left: 600px;
+}
+
+.form-login {
+  max-width: 330px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.form-login .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-login .form-control:focus {
+  z-index: 2;
+}
+
+.form-login input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.LogBg{
+	background-image: url("{% static 'Login.jpg' %}");
+	background-repeat: no-repeat;
+    padding: 250px;
+    background-size: cover;
+    opacity: 0.6;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="LogBg">
+
+	<div class="container-fluid .col-md-8">
+			
+
+		<div class="container1">
+        <div class="col-md-10 col-md-offset-10">
+          <form class='form-login' action="/login/" method="post">
+
+              <h2 class="text-center">Welcome aboard</h2>
+                <br>
+                
+              	{% if message %}
+				            <div class="alert alert-warning" style="color: red">{{ message }}</div>
+				        {% endif %}
+				        {% csrf_token %}
+
+              <div class="form-group font-weight-bold" style="color: black">
+                {{form.usertype.label_tag}}
+                {{form.usertype}}
+              </div>
+
+              <div class="form-group font-weight-bold" style="color: black">
+              	{{form.username.label_tag}}
+              	<br>
+              	{{form.username}}
+              </div>
+
+              <div class="form-group font-weight-bold" style="color: black">
+              	{{form.password.label_tag}}
+              	<br>
+              	{{form.password}}
+              </div>
+
+              <button type="reset" class="btn btn-default pull-left" style="color: black">Reset</button>
+              <button type="submit" class="btn btn-primary pull-right">Log in</button>
+
+          </form>
+        </div>
+    	</div>
+
+	</div>
+
+</div>
+
+<br>
+{% endblock %}

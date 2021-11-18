@@ -1,0 +1,134 @@
+{% extends "based.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+.bg {
+	background-color: #FBEEE2;
+}
+
+.SearchContainer{
+	background-position: center;
+	width: 100px;
+	padding-right: 400px;
+}
+
+
+.TopContainer{
+	background-image: url("{% static 'Home.jpg' %}");
+	background-position: center;
+	background-repeat: no-repeat;
+    padding: 200px;
+    background-size: cover;
+    opacity: 0.8;
+    justify-content: flex-end;
+}
+
+.WordPart{
+	width: 1080px ;
+    left: 0px ;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.WordinPic{
+	font-size: 24px;
+    color: #FFFFFF;
+    text-shadow: 2PX 2PX #000000;
+    font-family: Lato;
+    
+}
+.Welcome{
+	padding-bottom: 8px;
+    line-height: 30px;
+    font-size: 80px ;
+    letter-spacing: 3.0px;
+}
+
+.Subtitle{
+	font-weight: 500;
+    margin-right: 30px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.box{
+	position: relative;
+	color: rgb(72, 72, 72);
+	height: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(235, 235, 235);
+	border-image: initial;
+	border-radius: 3px;
+}
+
+.box1{
+	display: table;
+	width: 100%;
+	border-spacing: 0px;
+}
+
+.tablerow{
+	width: 100px;
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid" style="height: 800px;">
+	<section class="TopContainer">
+		<br>
+		<h1 class = "WordinPic">
+			<div class="Welcome"> WELCOME </div>
+			<br>
+			<br>
+			<span class="Subtitle">Today is {{ today }}</span>
+			<br>
+			<span class="Subtitle">Enjoy your trip!</span>
+		</h1>
+		<br>
+		<br>
+		<br>
+		<a class="btn btn-light btn-lg" href="#bottom" role="button">Explore Now</a>
+	</div>
+	</section>
+
+	<a name="bottom"><br><a>
+	<section class="SearchContainer container-fluid">
+		<div class="SearchContainer container-fluid">
+			
+			<table class="table table-hover">
+				<tr class="tablerow">
+					<td style="padding-left: 100px;"></td>
+					<td><a href="/search/Australia"><button class="btn btn-lg" type="button">Australia</button></a></td>
+					<td style="padding-left: 100px;"></td>
+				</tr>
+				<tr class="tablerow">
+					<td></td>
+					<td><a href="/search/Germany"><button class="btn btn-lg" type="button">Germany</button></a></td>
+					<td></td>
+				</tr>
+				<tr class="tablerow">
+					<td></td>
+					<td><a href="/search/Netherlands"><button class="btn btn-lg" type="button">Netherlands</button></a></td>
+					<td></td>
+				</tr>
+				<tr class="tablerow">
+					<td></td>
+					<td><a href="/search/Spain"><button class="btn btn-lg" type="button">Spain</button></a></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+.HeaderLogo{
+	width: 15%;
+	height: 15%;
+    padding-right: 30px;
+  	padding-left: 15px;
+}
+</style>
+{% endblock %}
+
+<nav class="navbar navbar-light bg-light"> 
+
+	<div class="container-fluid"> 
+
+		<img class="HeaderLogo", src="{% static 'logo1.png' %}">
+
+		<ul class="nav nav-tabs justify-content-end">  
+
+			<li class="nav-item">          
+				<a class="nav-link" href="/index/">Home</a>
+			</li>   
+			{% if request.session.type == 1 %}
+			<li class="nav-item">          
+				<a class="nav-link" href="/center/booker/">Center</a>
+			</li>
+			{% elif request.session.type == 2 %}
+			<li class="nav-item">          
+				<a class="nav-link" href="/center/host/">Center</a>
+			</li>
+			{% else %}  
+
+			{% endif %}             
+            
+			{% if request.session.is_login == True %}
+				<li class="nav-item">
+					<a href="/login/logout/"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Logout</button> </a>
+				</li> 
+
+			{% else %}
+
+					<li class="nav-item">          
+						<a class="nav-link" href="/login/">Login</a>   
+					</li>      
+
+					<li class="nav-item"> 
+						<a href="/login/register"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Account</button></a>      
+					</li> 
+			{% endif %}     
+		</ul>    
+	</div> 
+</nav>
