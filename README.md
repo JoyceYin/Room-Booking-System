@@ -3,7 +3,7 @@ A project from database courses and data processing workshop
 <br>
 UBooking system is a designed platform that can offer room booking for people.
 
-### Statements
+### Statement
 Make sure install Django before starting the project
 
 ### Data
@@ -16,7 +16,7 @@ we collect some scraping data from Airbnb via Python
 ### Database Design
 ![image](https://user-images.githubusercontent.com/65861783/142424794-df164a98-eef6-4dd3-8808-ecd54f825889.png)
 
-### Demo Screenshot
+### Demo Screenshots
 if book room as users <br>
 ![demo4](https://user-images.githubusercontent.com/65861783/142424919-da6a3f4f-5f2a-4e76-b277-98e1b7b4b625.png)
 ![demo3](https://user-images.githubusercontent.com/65861783/142424935-033c0d12-f0f4-4a1f-b35c-be13ede8de94.png)
